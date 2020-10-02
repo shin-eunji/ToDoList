@@ -28,6 +28,25 @@ router.get('/:id', async (req, res) => {
     res.json(result);
 })
 
+router.put('/:id', async (req, res) => {
+
+    const id = req.params.id
+    const {title, body} = req.body;
+
+    const result = await Todo.updateOne({_id: id}, {title, body})
+
+    res.json(result);
+})
+
+
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+
+    const result = await Todo.deleteOne({_id: id})
+
+    res.json(result);
+})
+
 
 
 

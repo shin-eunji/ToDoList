@@ -38,7 +38,7 @@ function FormGroup (props) {
 }
 
 const Container = styled.div`
-
+  width: 800px;
 `
 const Label = styled.label`
     display:block;
@@ -50,6 +50,7 @@ const Input = styled.input`
     background: transparent;
     border: 1px solid #ddd;
     padding: 8px;
+    background: #fff;
     -webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;
     -webkit-border-radius: none;-moz-border-radius: none;border-radius: none;
     width: 100%;

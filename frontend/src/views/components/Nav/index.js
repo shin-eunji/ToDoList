@@ -22,10 +22,13 @@ function Nav (props) {
             <NavItem>Topics</NavItem>
             <NavItem>Explore</NavItem>
             <NavItem onClick={() => appActions.updateState({
-                handlePopup: true
+                handlePopup: !handlePopup
             })}>
                 <AiOutlineEllipsis className={"more"}/>
             </NavItem>
+            {
+                app && <PopupMore handlePopup={handlePopup}/>
+            }
             <Button>
                 <SubmitButton>Submit a photo</SubmitButton>
             </Button>
@@ -33,11 +36,6 @@ function Nav (props) {
             <Button onClick={() => navigate('/todo')}>
                 <JoinButton>Join free</JoinButton>
             </Button>
-
-
-            {
-                app && <PopupMore handlePopup={!handlePopup}/>
-            }
         </Container>
     )
 }

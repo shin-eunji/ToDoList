@@ -53,6 +53,7 @@ function LoginForm (props) {
 const Container = styled.div`
   position:relative;
   top: 0;
+  width: 500px;
   
 `;
 const Button = styled.button`

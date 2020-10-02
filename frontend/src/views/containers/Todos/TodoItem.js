@@ -1,18 +1,17 @@
-
 import React from 'react';
 import styled from 'styled-components';
 
-function Write (props) {
+function TodoItem (props) {
 
     const {} = props;
 
     return (
         <Container>
-            Write
+            TodoItem
         </Container>
     )
 }
 
 const Container = styled.div`
 `
-export default Write;
+export default TodoItem;

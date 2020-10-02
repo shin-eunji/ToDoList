@@ -1,12 +1,14 @@
 import {createActions, createReducer} from 'reduxsauce'
 
 const initialState = {
-    openSidebar: false,
+    list: []
 }
 
 export const Action = createActions({
-    updateState: ['state']
-}, {prefix: 'APP'})
+    updateState: ['state'],
+    getTodos: null,
+    addTodo: ['data']
+}, {prefix: 'TODO'})
 
 export const reducer = createReducer(initialState,{
     [Action.Types.UPDATE_STATE]: (state, {state: newState}) => ({

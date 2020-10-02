@@ -14,8 +14,8 @@ export default function* () {
                 list: result
             }))
         }),
-        takeLatest(Action.Types.ADD_TODO, function* (data) {
-            const result = yield call(API.addTodo, {data})
+        takeLatest(Action.Types.ADD_TODO, function* ({data}) {
+            const result = yield call(API.addTodo, data)
             console.log("[saga] addTodo", result);
 
             if(result) {

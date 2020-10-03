@@ -21,6 +21,30 @@ export default function* () {
             if(result) {
                 navigate('/todo')
             }
+        }),
+        takeLatest(Action.Types.GET_TODO_BY_ID, function* ({id}) {
+            const result = yield call(API.getTodoById, id)
+            console.log("[saga] getTodoById", result);
+
+            if(result) {
+                yield put(Action.Creators.updateTodoDetail(id, result))
+            }
+        }),
+        takeLatest(Action.Types.UPDATE_TODO, function* ({id, data}) {
+            const result = yield call(API.updateTodo, id, data)
+            console.log("[saga] updateTodo", result);
+
+            if(result) {
+                navigate('/todo')
+            }
+        }),
+        takeLatest(Action.Types.DELETE_TODO, function* ({id}) {
+            const result = yield call(API.deleteTodo, id)
+            console.log("[saga] updateTodo", result);
+
+            if(result) {
+                navigate('/todo')
+            }
         })
     ])
 }

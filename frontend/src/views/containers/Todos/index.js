@@ -7,20 +7,26 @@ import Header from "../../components/Header";
 import {navigate} from "../../../lib/History";
 import Button from "../../components/Button";
 
-function TodosContainers (props) {
+function TodosContainers(props) {
 
     const {
+        item
     } = props;
 
     const {list} = useSelector(state => state.todos)
 
-    useEffect(() => {}, [])
+    useEffect(() => {
+    }, [])
 
     return (
         <Container>
             <Header/>
             <TodoList data={list}
-                      render={(item, index) => <Item key={index} {...item} />}
+                      render={(item, index) => <Item key={index} {...item}
+                                                     onClick={() => {
+                                                         navigate(`/todo/detail/${item._id}`)
+                                                     }}
+                      />}
             />
             <AddButton onClick={() => navigate('/todo/write')}>추가!!!</AddButton>
         </Container>
@@ -35,7 +41,7 @@ const Container = styled.div`
   align-items:flex-start;
   justify-content:center;
 `
-const AddButton = styled(Button)`
+const AddButton = styled.button`
   position:fixed;
   right: 30px;
   bottom: 30px;

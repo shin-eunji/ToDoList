@@ -5,11 +5,12 @@ function Item (props) {
 
     const {
         title,
-        body
+        body,
+        onClick
     } = props;
 
     return (
-        <Container>
+        <Container onClick={onClick}>
             <Title>{title}</Title>
             <Body>{body}</Body>
         </Container>
@@ -23,6 +24,7 @@ const Container = styled.div`
   margin: 30px 50px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 5px rgba(0,0,0,.05);
+  cursor: pointer;
 `
 const Title = styled.div`
   color: #333;

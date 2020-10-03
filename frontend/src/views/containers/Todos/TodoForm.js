@@ -7,7 +7,9 @@ import {todoActions} from "../../../redux/actionCreators";
 
 function TodoForm (props) {
 
-    const {} = props;
+    const {
+        onSubmit
+    } = props;
 
     const [values, setValue] = useState({})
 
@@ -21,12 +23,13 @@ function TodoForm (props) {
     const submitTodo = () => {
         console.log("values", values);
         todoActions.addTodo(values)
+        navigate('/todo')
     }
 
 
     return (
         <Container>
-            <form>
+            <form onSubmit={onSubmit}>
                 <FormGroup label="title"
                            onChange={onChange}
                            name="title"
@@ -51,7 +54,7 @@ const Container = styled.div`
   justify-content:center;
   
 `
-const AddButton = styled(Button)`
+const AddButton = styled.button`
     
 `;
 export default TodoForm;
